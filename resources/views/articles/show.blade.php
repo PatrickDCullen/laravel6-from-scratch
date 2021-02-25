@@ -13,8 +13,6 @@
             {{ $article->body }}
 
 		</div>
-
-		</div>
 	</div>
 </div>
 
