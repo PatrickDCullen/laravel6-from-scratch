@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticlesController;
 
-Route::get('/articles', [ArticlesController::class, 'index']);
-Route::get('/articles/{article}', [ArticlesController::class, 'show']);
+Route::get('/', function() {
+    return view('welcome');
+});
 
-// GET /articles
-// GET /articles/:id
-// POST /articles
-// PUT /articles/:id
-// DELETE /articles/:id
+
+Route::get('/articles', [ArticlesController::class, 'index']);
+Route::post('/articles', [ArticlesController::class, 'store']);
+Route::get('/articles/create', [ArticlesController::class, 'create']);
+Route::get('/articles/{article}', [ArticlesController::class, 'show']);
 
