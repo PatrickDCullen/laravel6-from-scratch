@@ -14,11 +14,17 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('title');
             $table->text('excerpt');
             $table->text('body');
             $table->timestamps();
+
+            // $table->foreign('user_id')
+            //     ->reference('id')
+            //     ->on('users')
+            //     ->onDelete('cascade');
         });
     }
 
