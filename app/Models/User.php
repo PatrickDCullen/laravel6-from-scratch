@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    public function routeNotificationForNextmo($notification)
+    {
+        return '15555555555';
+    }
 }
