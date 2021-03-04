@@ -41,13 +41,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function articles()
+    // public function articles()
+    // {
+    //     return $this->hasMany(Article::class);
+    // }
+
+    // public function routeNotificationForNextmo($notification)
+    // {
+    //     return '15555555555';
+    // }
+
+    public function conversations()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Conversation::class);
     }
 
-    public function routeNotificationForNextmo($notification)
+    public function replies()
     {
-        return '15555555555';
+        return $this->hasMany(Reply::class);
     }
 }
