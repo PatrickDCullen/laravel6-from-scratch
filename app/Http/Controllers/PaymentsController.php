@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\PaymentReceived;
 use Illuminate\Http\Request;
+use App\Events\ProductPurchased;
+use App\Notifications\PaymentReceived;
 use Illuminate\Support\Facades\Notification;
 
 class PaymentsController extends Controller
@@ -15,6 +16,8 @@ class PaymentsController extends Controller
 
     public function store()
     {
-        request()->user()->notify(new PaymentReceived(900));
+        // request()->user()->notify(new PaymentReceived(900));
+
+        ProductPurchased::dispatch('toy');
     }
 }
