@@ -15,7 +15,7 @@ Route::get('/', function() {
 });
 
 Route::get('/conversations', [ConversationsController::class, 'index']);
-Route::get('/conversations/{conversation}', [ConversationsController::class, 'show']);
+Route::get('/conversations/{conversation}', [ConversationsController::class, 'show'])->middleware('can:view,conversation');
 
 Route::post('/best-replies/{reply}', [ConversationBestReplyController::class, 'store']);
 
